@@ -1,5 +1,6 @@
 import {View, Text, StyleSheet, useColorScheme, Image} from 'react-native';
 import React, {useEffect} from 'react';
+import auth from '@react-native-firebase/auth';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import useNavigation from '../hooks/useNavigation';
 
@@ -13,9 +14,37 @@ const Splash = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigate('BottomTabs', {screen: 'Todos'});
-    }, 3000);
+      navigate('AuthLoadingScreen');
+    }, 1500);
   }, []);
+
+  // useEffect(() => {
+  //   const checkAuthState = async () => {
+  //     debugger;
+  //     console.log('entered');
+  //     try {
+  //       const unsubscribe = await auth().onAuthStateChanged(user => {
+  //         console.log('user', user);
+
+  //         if (user) {
+  //           // If the user is signed in, navigate to BottomTabs
+  //           navigation.navigate('BottomTabs', {
+  //             screen: 'Todos',
+  //           });
+  //         } else {
+  //           // If the user is not signed in, navigate to Login
+  //           navigation.navigate('Login');
+  //         }
+  //       });
+
+  //       return () => unsubscribe(); // Clean up the listener on unmount
+  //     } catch (error) {
+  //       console.error('Error checking auth state:', error);
+  //     }
+  //   };
+
+  //   checkAuthState();
+  // }, []);
 
   return (
     <View style={[style.container, backgroundStyle]}>

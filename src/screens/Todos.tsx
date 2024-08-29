@@ -12,7 +12,9 @@ import {
   View,
   useColorScheme,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
+import auth from '@react-native-firebase/auth';
+import useNavigation from '../hooks/useNavigation';
+import Toast from 'react-native-toast-message';
 
 type Props = {};
 
@@ -24,6 +26,8 @@ type TodoItem = {
 const Todos = (props: Props) => {
   const isDarkMode = useColorScheme() === 'dark';
 
+  const {navigate} = useNavigation();
+
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -32,6 +36,22 @@ const Todos = (props: Props) => {
   useEffect(() => {
     getTodoItems(0, 10).then(items => setTodoItems(items));
   }, []);
+
+  async function onLogoutPress() {
+    try {
+      await auth().signOut();
+      navigate('Login');
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  const showToast = () => {
+    Toast.show({
+      type: 'success',
+      text1: 'Hello',
+      text2: 'This is some something 👋',
+    });
+  };
   return (
     <SafeAreaView style={[styles.container, backgroundStyle]}>
       <StatusBar
@@ -42,8 +62,7 @@ const Todos = (props: Props) => {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>TODO</Text>
-          <Icon name="camera" size={30} color="#4F8EF7" />
+          <Text style={styles.sectionTitle}>TODOs</Text>
         </View>
         <View style={styles.sectionContainer}>
           {todoItems.map((item: any) => (
@@ -68,6 +87,8 @@ const Todos = (props: Props) => {
               });
             }}
           />
+          <Button title="Logout" onPress={onLogoutPress} />
+          <Button title="Show toast" onPress={showToast} />
         </View>
       </ScrollView>
     </SafeAreaView>

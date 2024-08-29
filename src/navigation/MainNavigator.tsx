@@ -5,9 +5,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import Splash from '../screens/Splash';
 import Todos from '../screens/Todos';
 import BottomTabs, {BottomTabParamList} from '../screens/BottomTabs';
+import Login from '../screens/Login';
+import AuthLoadingScreen from '../screens/AuthLoadingScreen';
 
 export type RootStackParamList = {
   Splash: undefined;
+  AuthLoadingScreen: undefined;
+  Login: undefined;
   BottomTabs: {
     screen: keyof BottomTabParamList;
     params?: BottomTabParamList[keyof BottomTabParamList];
@@ -22,6 +26,16 @@ const MainNavigator = () => {
         <Stack.Screen
           name="Splash"
           component={Splash}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="AuthLoadingScreen"
+          component={AuthLoadingScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
           options={{headerShown: false}}
         />
         <Stack.Screen
