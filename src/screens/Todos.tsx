@@ -12,6 +12,7 @@ import {
   View,
   useColorScheme,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
 
 type Props = {};
 
@@ -42,6 +43,7 @@ const Todos = (props: Props) => {
         style={backgroundStyle}>
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>TODO</Text>
+          <Icon name="camera" size={30} color="#4F8EF7" />
         </View>
         <View style={styles.sectionContainer}>
           {todoItems.map((item: any) => (
