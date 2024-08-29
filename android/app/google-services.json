@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "911197543393",
+    "project_id": "scopex-ad037",
+    "storage_bucket": "scopex-ad037.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911197543393:android:41a7c9bdd9725f6b8b10a0",
+        "android_client_info": {
+          "package_name": "dev.scopex.avnshsingh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqdbCSO5QMlG2NGw0Rv6IqRDt9c4JmvOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
