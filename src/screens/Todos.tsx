@@ -15,6 +15,8 @@ import {
 import auth from '@react-native-firebase/auth';
 import useNavigation from '../hooks/useNavigation';
 import Toast from 'react-native-toast-message';
+import useToast from '../hooks/useToast';
+import {Theme, useTheme} from '@react-navigation/native';
 
 type Props = {};
 
@@ -25,8 +27,12 @@ type TodoItem = {
 };
 const Todos = (props: Props) => {
   const isDarkMode = useColorScheme() === 'dark';
-
   const {navigate} = useNavigation();
+
+  const {colors} = useTheme();
+  const styles = createStyles(colors);
+
+  const {successMessage, errorMessage, warnMessage} = useToast();
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -45,22 +51,16 @@ const Todos = (props: Props) => {
       console.error(error);
     }
   }
-  const showToast = () => {
-    Toast.show({
-      type: 'success',
-      text1: 'Hello',
-      text2: 'This is some something 👋',
-    });
-  };
+
   return (
-    <SafeAreaView style={[styles.container, backgroundStyle]}>
+    <SafeAreaView style={[styles.container]}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+        backgroundColor={colors.background}
       />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
+        style={{backgroundColor: colors.background}}>
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>TODOs</Text>
         </View>
@@ -73,7 +73,16 @@ const Todos = (props: Props) => {
         </View>
         <View style={styles.sectionContainer}>
           <TextInput
-            style={styles.sectionDescription}
+            style={[
+              styles.sectionDescription,
+              {
+                borderColor: colors.border,
+                borderWidth: 1,
+                borderRadius: 20,
+                backgroundColor: colors.card,
+                marginBottom: 20,
+              },
+            ]}
             placeholder="Add your todo item"
             onChange={e => setNewTodoItem(e.nativeEvent.text)}
           />
@@ -87,8 +96,6 @@ const Todos = (props: Props) => {
               });
             }}
           />
-          <Button title="Logout" onPress={onLogoutPress} />
-          <Button title="Show toast" onPress={showToast} />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -97,31 +104,39 @@ const Todos = (props: Props) => {
 
 export default Todos;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  todoItem: {
-    fontSize: 18,
-    fontWeight: '400',
-    borderBottomWidth: 1,
-    padding: 8,
-    borderBottomColor: 'gray',
-  },
-});
+type ThemeColors = Theme['colors'];
+
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background,
+    },
+    sectionContainer: {
+      marginTop: 32,
+      paddingHorizontal: 24,
+    },
+    sectionTitle: {
+      fontSize: 24,
+      fontWeight: '600',
+      color: colors.text,
+    },
+    sectionDescription: {
+      marginTop: 8,
+      fontSize: 18,
+      fontWeight: '400',
+      color: colors.text,
+    },
+    highlight: {
+      fontWeight: '700',
+      color: colors.primary,
+    },
+    todoItem: {
+      fontSize: 18,
+      fontWeight: '400',
+      borderBottomWidth: 1,
+      padding: 8,
+      borderBottomColor: 'gray',
+      color: colors.text,
+    },
+  });

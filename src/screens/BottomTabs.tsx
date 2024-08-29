@@ -4,6 +4,7 @@ import Todos from '../screens/Todos';
 import Profile from '../screens/Profile';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {useRoute} from '@react-navigation/native';
 
 export type BottomTabParamList = {
   Todos: undefined;
@@ -13,6 +14,8 @@ export type BottomTabParamList = {
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 
 const BottomTabs = () => {
+  const route = useRoute();
+  console.log('bottom route', route);
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen
