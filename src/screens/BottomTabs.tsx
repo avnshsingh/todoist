@@ -14,8 +14,6 @@ export type BottomTabParamList = {
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 
 const BottomTabs = () => {
-  const route = useRoute();
-  console.log('bottom route', route);
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen

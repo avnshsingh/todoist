@@ -13,7 +13,7 @@ const useToast = () => {
       text1: message,
     });
   };
-  const warnMessage = (message: string) => {
+  const infoMessage = (message: string) => {
     Toast.show({
       type: 'info',
       text1: message,
@@ -22,7 +22,7 @@ const useToast = () => {
   return {
     successMessage,
     errorMessage,
-    warnMessage,
+    infoMessage,
   };
 };
 

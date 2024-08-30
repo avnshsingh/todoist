@@ -17,14 +17,11 @@ import useNavigation from '../hooks/useNavigation';
 import Toast from 'react-native-toast-message';
 import useToast from '../hooks/useToast';
 import {Theme, useTheme} from '@react-navigation/native';
+import {useQuery} from '@tanstack/react-query';
+import {ThemeColors, TodoItem} from '../utils/types';
 
 type Props = {};
 
-type TodoItem = {
-  id: string;
-  title: string;
-  done: boolean;
-};
 const Todos = (props: Props) => {
   const isDarkMode = useColorScheme() === 'dark';
   const {navigate} = useNavigation();
@@ -32,25 +29,19 @@ const Todos = (props: Props) => {
   const {colors} = useTheme();
   const styles = createStyles(colors);
 
-  const {successMessage, errorMessage, warnMessage} = useToast();
+  const {data} = useQuery({
+    queryKey: ['todos'],
+    queryFn: async () => getTodoItems(0, 10),
+  });
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  console.log('data', data);
+
   const [todoItems, setTodoItems] = React.useState<TodoItem[]>([]);
   const [newTodoItem, setNewTodoItem] = React.useState('');
+
   useEffect(() => {
     getTodoItems(0, 10).then(items => setTodoItems(items));
   }, []);
-
-  async function onLogoutPress() {
-    try {
-      await auth().signOut();
-      navigate('Login');
-    } catch (error) {
-      console.error(error);
-    }
-  }
 
   return (
     <SafeAreaView style={[styles.container]}>
@@ -103,8 +94,6 @@ const Todos = (props: Props) => {
 };
 
 export default Todos;
-
-type ThemeColors = Theme['colors'];
 
 const createStyles = (colors: ThemeColors) =>
   StyleSheet.create({

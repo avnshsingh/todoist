@@ -1,8 +1,9 @@
 import React from 'react';
-import {TouchableOpacity, StyleSheet} from 'react-native';
+import {TouchableOpacity, StyleSheet, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useTheme} from '@react-navigation/native';
 import {useThemeToggleContext} from '../context/ThemeProvider';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const ThemeToggle = () => {
   const {toggleTheme} = useThemeToggleContext();
@@ -13,10 +14,11 @@ const ThemeToggle = () => {
       onPress={toggleTheme}
       style={[styles.button, {backgroundColor: colors.card}]}>
       <Icon
-        name={dark ? 'brightness-2' : 'wb-sunny'} // 'brightness-2' for dark, 'wb-sunny' for light
+        name={dark ? 'brightness-2' : 'wb-sunny'}
         size={24}
         color={colors.text}
       />
+      <Text style={[{color: colors.text}]}>Toggle Theme</Text>
     </TouchableOpacity>
   );
 };
@@ -24,10 +26,10 @@ const ThemeToggle = () => {
 const styles = StyleSheet.create({
   button: {
     padding: 10,
-    borderRadius: 20,
+    borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 50,
+    width: 'auto',
   },
 });
 

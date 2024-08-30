@@ -11,10 +11,8 @@ const AuthLoadingScreen = () => {
       const user = auth().currentUser;
 
       if (user) {
-        // User is signed in, navigate to BottomTabs
         navigation.navigate('BottomTabs', {screen: 'Todos'});
       } else {
-        // User is not signed in, navigate to Login
         navigation.navigate('Login');
       }
     };
