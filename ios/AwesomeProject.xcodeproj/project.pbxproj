@@ -15,6 +15,11 @@
 		54B0765E1C2E2CFAA2E212F7 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8CED46F9413FD5A9911E1E8B /* PrivacyInfo.xcprivacy */; };
 		7699B88040F8A987B510C191 /* libPods-AwesomeProject-AwesomeProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-AwesomeProject-AwesomeProjectTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C81BF9074028439081F409F6 /* FiraCode-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C3EE74C92D146DF9B147E8E /* FiraCode-Bold.ttf */; };
+		9D35834EDF8249938D25B7D2 /* FiraCode-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 438CAD2ACC0747EC8AECB445 /* FiraCode-Light.ttf */; };
+		2D62B5962F23499FACE4F06E /* FiraCode-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 954A02151125414E9CF723E8 /* FiraCode-Medium.ttf */; };
+		BA588C1425A240A9A037D3B3 /* FiraCode-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3800F6A1DFA748E09F02C7D5 /* FiraCode-SemiBold.ttf */; };
+		43CB1F219A0743E796D50F0E /* FiraCode.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DECC558763E4550A947EFDF /* FiraCode.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-AwesomeProject-AwesomeProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProject-AwesomeProjectTests.release.xcconfig"; path = "Target Support Files/Pods-AwesomeProject-AwesomeProjectTests/Pods-AwesomeProject-AwesomeProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		8CED46F9413FD5A9911E1E8B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = AwesomeProject/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		3C3EE74C92D146DF9B147E8E /* FiraCode-Bold.ttf */ = {isa = PBXFileReference; name = "FiraCode-Bold.ttf"; path = "../src/fonts/FiraCode-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		438CAD2ACC0747EC8AECB445 /* FiraCode-Light.ttf */ = {isa = PBXFileReference; name = "FiraCode-Light.ttf"; path = "../src/fonts/FiraCode-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		954A02151125414E9CF723E8 /* FiraCode-Medium.ttf */ = {isa = PBXFileReference; name = "FiraCode-Medium.ttf"; path = "../src/fonts/FiraCode-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3800F6A1DFA748E09F02C7D5 /* FiraCode-SemiBold.ttf */ = {isa = PBXFileReference; name = "FiraCode-SemiBold.ttf"; path = "../src/fonts/FiraCode-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2DECC558763E4550A947EFDF /* FiraCode.ttf */ = {isa = PBXFileReference; name = "FiraCode.ttf"; path = "../src/fonts/FiraCode.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +137,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				F48992250DEE48A38B57B4D7 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -152,6 +163,19 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		F48992250DEE48A38B57B4D7 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				3C3EE74C92D146DF9B147E8E /* FiraCode-Bold.ttf */,
+				438CAD2ACC0747EC8AECB445 /* FiraCode-Light.ttf */,
+				954A02151125414E9CF723E8 /* FiraCode-Medium.ttf */,
+				3800F6A1DFA748E09F02C7D5 /* FiraCode-SemiBold.ttf */,
+				2DECC558763E4550A947EFDF /* FiraCode.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -249,6 +273,11 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				54B0765E1C2E2CFAA2E212F7 /* PrivacyInfo.xcprivacy in Resources */,
+				C81BF9074028439081F409F6 /* FiraCode-Bold.ttf in Resources */,
+				9D35834EDF8249938D25B7D2 /* FiraCode-Light.ttf in Resources */,
+				2D62B5962F23499FACE4F06E /* FiraCode-Medium.ttf in Resources */,
+				BA588C1425A240A9A037D3B3 /* FiraCode-SemiBold.ttf in Resources */,
+				43CB1F219A0743E796D50F0E /* FiraCode.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

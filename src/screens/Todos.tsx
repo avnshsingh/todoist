@@ -258,6 +258,7 @@ const createStyles = (colors: ThemeColors) =>
     container: {
       flex: 1,
       backgroundColor: colors.background,
+      fontFamily: 'FiraCode-Regular',
     },
     header: {
       padding: 16,
