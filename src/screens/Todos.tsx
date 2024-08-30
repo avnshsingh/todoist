@@ -24,7 +24,6 @@ import {
 import {ThemeColors, TodoItem} from '../utils/types';
 import Loader from '../components/Loader';
 import useToast from '../hooks/useToast';
-import {z} from 'zod';
 import {todoSchema} from '../utils/zodSchema';
 
 const ITEMS_PER_PAGE = 11;
@@ -224,9 +223,7 @@ const Todos = () => {
               style={styles.modalInput}
               value={selectedTodo?.title}
               onChangeText={text =>
-                setSelectedTodo(prev =>
-                  prev ? {...prev, title: text, done: true} : null,
-                )
+                setSelectedTodo(prev => (prev ? {...prev, title: text} : null))
               }
             />
             <View style={styles.modalButtons}>

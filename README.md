@@ -2,6 +2,10 @@
 
 > **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
+## Demo Video & Code Explainer
+
+[Video Link](https://youtu.be/RkYC_t_B9qk)
+
 ## Task
 
 The current codebase has performance issues and bugs that need to be identified and fixed. Below are the specific tasks to complete the assignment:

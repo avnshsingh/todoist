@@ -45,7 +45,6 @@ const queryClient = new QueryClient({
 });
 
 const MainNavigator = () => {
-  const {theme, toggleTheme} = useThemeToggle();
   useOnlineManager();
   useAppState(onAppStateChange);
 
