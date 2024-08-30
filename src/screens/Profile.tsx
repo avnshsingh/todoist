@@ -2,17 +2,17 @@ import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import {useTheme} from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
-import {User} from '@react-native-google-signin/google-signin';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 
 import ThemeToggle from '../components/ThemeToggle';
 import useNavigation from '../hooks/useNavigation';
 import {ThemeColors} from '../utils/types';
+import Loader from '../components/Loader';
 
 type Props = {};
 
-const Profile: React.FC<Props> = () => {
+const Profile = () => {
   const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
   const {navigate} = useNavigation();
   const {colors} = useTheme();
@@ -35,14 +35,10 @@ const Profile: React.FC<Props> = () => {
   }
 
   if (!user) {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.loadingText}>Loading user information...</Text>
-      </View>
-    );
+    return <Loader message="Loading user information..." />;
   }
 
-  const InfoItem: React.FC<InfoItemProps> = ({icon, label, value, colors}) => (
+  const InfoItem = ({icon, label, value, colors}: InfoItemProps) => (
     <View style={styles.infoItem}>
       <Icon
         name={icon}
@@ -56,7 +52,6 @@ const Profile: React.FC<Props> = () => {
       </View>
     </View>
   );
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -79,6 +74,18 @@ const Profile: React.FC<Props> = () => {
           icon="fingerprint"
           label="User ID"
           value={user.uid.slice(0, 8) + '...'}
+          colors={colors}
+        />
+        <InfoItem
+          icon="perm-phone-msg"
+          label="Phone Number"
+          value="Not Available"
+          colors={colors}
+        />
+        <InfoItem
+          icon="phonelink-lock"
+          label="Multifactor Enabled"
+          value="Not Enabled"
           colors={colors}
         />
       </View>
